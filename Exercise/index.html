@@ -154,6 +154,28 @@
                 return 2
             }
         })
+
+        let gentooisland_code = d3.map(gentooData,function (d) {
+            gentooIsland = d.gender
+            if (gentooIsland === "MALE") {
+                return 0
+            } else if (gentooIsland === "FEMALE") {
+                return 1
+            } else {
+                return 2
+            }
+        })
+
+        let chinstrapisland_code = d3.map(chinstrapData,function (d) {
+            chinstrapIsland = d.gender
+            if (chinstrapIsland === "MALE") {
+                return 0
+            } else if (chinstrapIsland === "FEMALE") {
+                return 1
+            } else {
+                return 2
+            }
+        })
         
         scatter_plot(adelieculmen_depth_mm,
         adelieculmen_length_mm,
@@ -163,6 +185,25 @@
             ,title='Adelie Penguins',
             xLabel="Adelie culmen_depth_mm",
             yLabel="Adelie culmen_length_mm");
+            scatter_plot(gentooculmen_depth_mm,
+        gentooculmen_length_mm,
+            10,
+            gentooisland_code,
+            'main2'
+            ,title='Gentoo Penguins',
+            xLabel="Gentoo culmen_depth_mm",
+            yLabel="Gentoo culmen_length_mm");
+
+        scatter_plot(chinstrapculmen_depth_mm,
+        chinstrapculmen_length_mm,
+            10,
+            chinstrapisland_code,
+            'main3'
+            ,title='Chinstrap Penguins',
+            xLabel="Chinstrap culmen_depth_mm",
+            yLabel="Chinstrap culmen_length_mm");
+        
+
     }
 
     function main(data){
